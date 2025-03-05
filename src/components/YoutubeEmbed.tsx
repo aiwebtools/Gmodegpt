@@ -51,20 +51,27 @@ const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({
   }, [videoId, autoplay, muted]);
 
   return (
-    <div className="w-full aspect-video relative bg-black/20 rounded-lg overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-10 h-10 border-t-2 border-cyberpunk-neon-blue animate-spin rounded-full"></div>
+    <div className="w-full flex flex-col items-center">
+      <div className="w-full aspect-video relative bg-black/20 rounded-lg overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-10 h-10 border-t-2 border-cyberpunk-neon-blue animate-spin rounded-full"></div>
+        </div>
+        <iframe
+          ref={iframeRef}
+          className="w-full h-full absolute inset-0 z-10 rounded-lg"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+        
+        {/* Animated Glow Border */}
+        <div className="absolute inset-0 z-20 pointer-events-none rounded-lg border-2 border-cyberpunk-neon-blue shadow-neon opacity-70"></div>
       </div>
-      <iframe
-        ref={iframeRef}
-        className="w-full h-full absolute inset-0 z-10 rounded-lg"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
       
-      {/* Animated Glow Border */}
-      <div className="absolute inset-0 z-20 pointer-events-none rounded-lg border-2 border-cyberpunk-neon-blue shadow-neon opacity-70"></div>
+      {/* Added anthem text */}
+      <p className="text-xs text-cyberpunk-neon-blue font-medium tracking-wider mt-2 uppercase">
+        THE GODMODE GPT ANTHEM
+      </p>
     </div>
   );
 };
