@@ -8,7 +8,7 @@ interface MainLayoutProps {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  // Smooth scroll to anchor links
+  // Smooth scroll to anchor links - optimized for performance
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -21,8 +21,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         const targetElement = document.getElementById(targetId);
         
         if (targetElement) {
+          // Get header height dynamically to account for different screen sizes
+          const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+          
           window.scrollTo({
-            top: targetElement.offsetTop - 80, // Adjust for header height
+            top: targetElement.offsetTop - headerHeight,
             behavior: 'smooth'
           });
           
@@ -38,11 +41,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       document.removeEventListener('click', handleAnchorClick);
     };
   }, []);
-  
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Navbar />
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow pt-16 md:pt-20">{children}</main>
       <Footer />
     </div>
   );

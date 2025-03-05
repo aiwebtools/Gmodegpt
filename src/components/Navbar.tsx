@@ -16,19 +16,32 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-cyberpunk-darker-bg/80 backdrop-blur-md py-3 shadow-lg"
-          : "bg-transparent py-5"
+          ? "bg-cyberpunk-darker-bg/90 backdrop-blur-md py-2 shadow-lg"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center z-50">
           <div className="relative overflow-visible">
-            <span className="text-2xl font-bold tracking-tighter neon-text-blue">
+            <span className="text-xl md:text-2xl font-bold tracking-tighter neon-text-blue">
               GODMODE GPT
             </span>
             <a 
@@ -64,7 +77,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 z-50"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -72,19 +85,20 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Improved for better mobile UX */}
       <div
-        className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-md transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}
+        } md:hidden flex flex-col justify-center`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8 p-8">
+        <div className="flex flex-col items-center justify-center h-full gap-6 p-6">
           <Button3D 
             href="https://chatgpt.com/g/g-t3ovii6qP-godmode-gpt"
             variant="primary"
             glowColor="blue"
             size="lg"
             fullWidth
+            className="w-full max-w-[280px]"
           >
             ACCESS GODMODE GPT
           </Button3D>
@@ -94,14 +108,15 @@ const Navbar: React.FC = () => {
             glowColor="purple"
             size="lg"
             fullWidth
+            className="w-full max-w-[280px]"
           >
             MORE AI TOOLS
           </Button3D>
           <button
-            className="mt-8 text-white p-2"
+            className="mt-6 text-white p-2 rounded-full bg-cyberpunk-darker-bg/80 border border-white/10"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <X size={24} />
+            <X size={20} />
           </button>
         </div>
       </div>

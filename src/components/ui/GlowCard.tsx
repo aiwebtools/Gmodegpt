@@ -7,12 +7,14 @@ interface GlowCardProps {
   glowColor?: "blue" | "purple" | "pink";
   animate?: boolean;
   children: React.ReactNode;
+  reducedMotion?: boolean;
 }
 
 const GlowCard: React.FC<GlowCardProps> = ({
   className,
   glowColor = "blue",
   animate = false,
+  reducedMotion = false,
   children,
 }) => {
   const glowStyles = {
@@ -24,9 +26,10 @@ const GlowCard: React.FC<GlowCardProps> = ({
   return (
     <div
       className={cn(
-        "relative bg-cyberpunk-darker-bg/80 backdrop-blur-sm rounded-lg border p-5 transition-all duration-300 hover:scale-[1.02]",
+        "relative bg-cyberpunk-darker-bg/80 backdrop-blur-sm rounded-lg border p-4 md:p-5 transition-all duration-300",
+        !reducedMotion && "hover:scale-[1.02]",
         glowStyles[glowColor],
-        animate && "animate-pulse-glow",
+        animate && !reducedMotion && "animate-pulse-glow",
         className
       )}
     >
