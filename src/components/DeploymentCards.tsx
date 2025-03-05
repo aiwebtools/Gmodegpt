@@ -1,7 +1,7 @@
 
 import React from "react";
 import GlowCard from "./ui/GlowCard";
-import { FileCode, Rocket, Terminal, Server, Settings, Cloud } from "lucide-react";
+import { FileCode, Rocket, Terminal, Server, Settings, Cloud, ClipboardCopy } from "lucide-react";
 
 const deploymentSteps = [
   {
@@ -64,6 +64,14 @@ const DeploymentCards: React.FC = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             GODMODE GPT provides comprehensive operational instructions from the start, enabling you to deploy and control your own specialized AI assistants with godlike power.
           </p>
+          
+          {/* Added prominent copy and paste instruction */}
+          <div className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-cyberpunk-neon-purple/20 border border-cyberpunk-neon-purple/40 rounded-lg animate-pulse">
+            <ClipboardCopy className="text-cyberpunk-neon-purple" />
+            <p className="text-lg font-bold text-white">
+              Simply Copy and Paste them into OpenAI Custom GPT builder
+            </p>
+          </div>
         </div>
         
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -79,6 +87,16 @@ const DeploymentCards: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">{step.title}</h3>
               <p className="text-gray-300">{step.description}</p>
+              
+              {/* Added copy and paste hint at the bottom of each card */}
+              {index === 3 && (
+                <div className="mt-4 pt-4 border-t border-white/10 w-full">
+                  <p className="text-sm font-medium text-cyberpunk-neon-blue flex items-center justify-center gap-1">
+                    <ClipboardCopy size={14} />
+                    Copy & Paste into OpenAI GPT Builder
+                  </p>
+                </div>
+              )}
             </GlowCard>
           ))}
         </div>
