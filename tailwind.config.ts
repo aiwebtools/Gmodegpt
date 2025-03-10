@@ -125,6 +125,10 @@ export default {
             "background-position": "right center",
           },
         },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -134,6 +138,7 @@ export default {
         "text-glow": "text-glow 2s ease-in-out infinite",
         "rotate-slow": "rotate-slow 12s linear infinite",
         "gradient-x": "gradient-x 3s ease infinite",
+        "fade-in": "fade-in 0.3s ease-out",
       },
       fontFamily: {
         'cyberpunk': ['Inter', 'Roboto', 'sans-serif'],
