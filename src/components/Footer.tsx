@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
               <div className="text-2xl font-bold neon-text-blue mb-1">GODMODE GPT</div>
               <div className="text-xs text-gray-400">
                 <a 
-                  href="https://www.aiwebtools.ai" 
+                  href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a 
-                  href="https://aiwebtools.ai/terms-of-services"
+                  href="https://aiwebtools.lovable.app/?via=aiwebtools"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -138,7 +138,7 @@ const Footer: React.FC = () => {
             ACCESS GODMODE GPT
           </Button3D>
           <Button3D 
-            href="https://www.aiwebtools.ai"
+            href="https://aiwebtools.lovable.app/?via=aiwebtools"
             variant="outline"
             glowColor="purple"
           >
@@ -149,7 +149,7 @@ const Footer: React.FC = () => {
         {/* Floating "More AI Tools" button */}
         <div className="fixed bottom-4 right-4 z-20">
           <Button3D 
-            href="https://www.aiwebtools.ai"
+            href="https://aiwebtools.lovable.app/?via=aiwebtools"
             variant="primary"
             glowColor="purple"
             className="rounded-full px-5"

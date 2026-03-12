@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
                 ACCESS GODMODE GPT
               </Button3D>
               <Button3D 
-                href="https://www.aiwebtools.ai"
+                href="https://aiwebtools.lovable.app/?via=aiwebtools"
                 variant="outline"
                 size="lg"
                 glowColor="purple"
