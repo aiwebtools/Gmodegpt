@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
               <div className="text-2xl font-bold neon-text-blue mb-1">GODMODE GPT</div>
               <div className="text-xs text-gray-400">
                 <a 
-                  href="https://www.aiwebtools.ai" 
+                  href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
