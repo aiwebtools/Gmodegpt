@@ -149,7 +149,7 @@ const Footer: React.FC = () => {
         {/* Floating "More AI Tools" button */}
         <div className="fixed bottom-4 right-4 z-20">
           <Button3D 
-            href="https://www.aiwebtools.ai"
+            href="https://aiwebtools.lovable.app/?via=aiwebtools"
             variant="primary"
             glowColor="purple"
             className="rounded-full px-5"
