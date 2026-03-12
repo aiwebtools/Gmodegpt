@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
               GODMODE GPT
             </span>
             <a 
-              href="https://www.aiwebtools.ai" 
+              href="https://aiwebtools.lovable.app/?via=aiwebtools" 
               target="_blank" 
               rel="noopener noreferrer"
               className="block text-xs text-gray-400 hover:text-white transition-colors mt-0.5"
